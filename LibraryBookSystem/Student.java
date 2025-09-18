@@ -1,5 +1,5 @@
 public class Student {
-    // Fields to store student and book information (private for encapsulation)
+  
     private String fullName;
     private String studentId;
     private String grade;
@@ -8,7 +8,7 @@ public class Student {
 
 
     public Student(String fullName, String studentId, String grade, String bookTitle, String bookId) {
-        this.fullName = fullName; // 'this' refers to the object's own field
+        this.fullName = fullName; 
         this.studentId = studentId;
         this.grade = grade;
         this.bookTitle = bookTitle;
@@ -40,3 +40,4 @@ public class Student {
                 ", Book ID: " + bookId;
     }
 }
+
