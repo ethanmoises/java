@@ -6,7 +6,7 @@ public class Main {
       Employee emp1 = new Employee("Ethan Moises", 1, "Java Developer", "IT");
       Employee emp2 = new Employee("Conrad Fisher", 2, "Manager", "SALES");
       Employee emp3 = new Employee("Noah Calhoun", 3, "Assistant", "HR");
-      Employee emp4 = new Employee("Harry", 4, "Banga Mag Code", "IT");
+      Employee emp4 = new Employee("Harry", 4, "Developer", "IT");
 
       Employee[] employee = {emp1, emp2, emp3, emp4};
 
