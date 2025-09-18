@@ -1,55 +1,47 @@
 import java.util.Scanner;
 public class Main {
-    public static void main(String[] args) {
-        Account account = new Account();
-        account.accountNumber = "10293738357";
-        account.accountName = "Ethan Moises";
-        account.balance = 1000000d;
-        account.accountPin = 2135;
-        Scanner scan = new Scanner(System.in);
-        System.out.println("Enter your PIN:");
-        int pin = scan.nextInt();
-        if (pin == account.accountPin) {
-        for (; ;) {
+   public static void main (String[]args) {
+      Scanner scan = new Scanner(System.in);
 
+      Employee emp1 = new Employee("Ethan Moises", 1, "Java Developer", "IT");
+      Employee emp2 = new Employee("Conrad Fisher", 2, "Manager", "SALES");
+      Employee emp3 = new Employee("Noah Calhoun", 3, "Assistant", "HR");
+      Employee emp4 = new Employee("Harry", 4, "Banga Mag Code", "IT");
 
-            System.out.println("1. Account Information 2. Withdraw Account 3. Deposit Account 4. Exit");
-            int number = scan.nextInt();
-            if (number == 4) {
-                System.out.println("Thank you for using this banking software.");
-                break;
+      Employee[] employee = {emp1, emp2, emp3, emp4};
+
+      String choice = "y";
+
+      while (choice.equalsIgnoreCase("y")) {
+         System.out.println("Available Employee IDs:");
+         for (int i = 0; i < employee.length; i++) {
+
+            System.out.println("Employee ID: " + employee[i].getEmployeeId());
+
+         }
+
+         System.out.print("Enter an Employee ID to view details: ");
+         int searchId = scan.nextInt();
+
+         boolean found = false;
+         for (int i = 0; i < employee.length; i++) {
+            if (employee[i].getEmployeeId() == searchId) {
+               System.out.println("Employee ID: " + employee[i].getEmployeeId() +
+                       ", Name: " + employee[i].getName() +
+                       ", Position: " + employee[i].getPosition() +
+                       ", Department: " + employee[i].getDepartment());
+               found = true;
+               break;
             }
-            switch (number) {
-                case 1:
-                    System.out.println("Full Name:" + " " + account.accountName);
-                    System.out.println("Account Number:" + " " + account.accountNumber);
-                    System.out.println("Current Balance:" + " " + account.balance);
-                    break;
-                case 2:
-                    System.out.println("Input the amount you would like to withdraw:");
-                    int withdrawAmount = scan.nextInt();
-                    account.withdrawal((double) withdrawAmount);
-                    System.out.println("You Have Widthrawn An Amount Of:" + " " + withdrawAmount);
-                    break;
-                case 3:
-                    System.out.println("Input the amount you would like to deposit:");
-                    int depositAmount = scan.nextInt();
-                    account.deposit((double) depositAmount);
-                    break;
-            }
-            System.out.println("Select any key to return to the menu.");
-            String response = scan.next();
+         }
 
-          }
+         if (!found) {
+            System.out.println("Employee not found!");
+         }
 
-        }
-        else {
-            System.out.println("The PIN you have entered is invalid. Please use a valid pin.");
-        }
-    }
+         System.out.print("Do you want to search again? (Y/N): ");
+         choice = scan.next();
+      }
+         System.out.println("Program ended.");
+   }
 }
-
-
-
-
-
