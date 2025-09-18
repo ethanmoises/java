@@ -7,7 +7,7 @@ public class Main {
         int choice;
 
         do {
-            // Display menu options
+           
             System.out.println("\nLibrary Book System Menu:");
             System.out.println("1. Add Record");
             System.out.println("2. Delete Record");
