@@ -1,36 +1,50 @@
 public class Employee {
 
-    private String name;
+    private int idNum;
 
-    private int employeeId;
+    private String firstName;
+
+    private String lastName;
 
     private String position;
 
-    private String department;
+    private Department department;
+    Employee(int idNum, String firstName, String lastName, String position, Department department){
+        this.idNum = idNum;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.position = position;
+        this.department = department;
 
-    Employee(String name, int employeeId, String position, String department) {
-    this.name = name;
-    this.employeeId = employeeId;
-    this.position = position;
-    this.department = department;
+    }
+    @Override
+    public String toString(){
+        return "ID: " + idNum +
+                ", First Name: " + firstName +
+                ", Last Name: " + lastName +
+                ", Position: " + position +
+                ", Department: " + department;
+
     }
 
-    public String getName(){
-        return name;
+    public int getIdNum() {
+        return idNum;
     }
 
-    public int getEmployeeId(){
-        return employeeId;
+    public String getFirstName() {
+        return firstName;
+    }
+
+    public String getLastName(){
+        return lastName;
     }
 
     public String getPosition(){
         return position;
     }
-
-    public String getDepartment(){
+    public Department getDepartment() {
         return department;
     }
-
 
 
 }

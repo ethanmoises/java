@@ -1,47 +1,55 @@
-import java.util.Scanner;
+import java.util.*;
 public class Main {
-   public static void main (String[]args) {
-      Scanner scan = new Scanner(System.in);
+    public static void main (String[]args){
+        Scanner scan = new Scanner(System.in);
 
-      Employee emp1 = new Employee("Ethan Moises", 1, "Java Developer", "IT");
-      Employee emp2 = new Employee("Conrad Fisher", 2, "Manager", "SALES");
-      Employee emp3 = new Employee("Noah Calhoun", 3, "Assistant", "HR");
-      Employee emp4 = new Employee("Harry", 4, "Banga Mag Code", "IT");
+        List<Employee> employee = new ArrayList<>();
 
-      Employee[] employee = {emp1, emp2, emp3, emp4};
 
-      String choice = "y";
+        employee.add(new Employee(101, "Ethan James", "Moises", "Java Developer", Department.IT));
+        employee.add(new Employee(102, "Nathan James", "Moises", "Java Developer", Department.IT));
+        employee.add(new Employee(103, "Athan James", "Moises", "Java Developer", Department.IT));
+        employee.add(new Employee(104, "James Moises", "Ethan", "Java Developer", Department.IT));
 
-      while (choice.equalsIgnoreCase("y")) {
-         System.out.println("Available Employee IDs:");
-         for (int i = 0; i < employee.length; i++) {
 
-            System.out.println("Employee ID: " + employee[i].getEmployeeId());
+        String choice = "y";
 
-         }
+    while(choice.equalsIgnoreCase("y")) {
 
-         System.out.print("Enter an Employee ID to view details: ");
-         int searchId = scan.nextInt();
+        System.out.println("Available Employee IDs:");
+        for (Employee e : employee) {
+            System.out.println(e.getIdNum());
+        }
 
-         boolean found = false;
-         for (int i = 0; i < employee.length; i++) {
-            if (employee[i].getEmployeeId() == searchId) {
-               System.out.println("Employee ID: " + employee[i].getEmployeeId() +
-                       ", Name: " + employee[i].getName() +
-                       ", Position: " + employee[i].getPosition() +
-                       ", Department: " + employee[i].getDepartment());
-               found = true;
-               break;
+        System.out.println("Enter An ID To View: ");
+        int searchId = scan.nextInt();
+
+        boolean found = false;
+
+        for (Employee e: employee) {
+            if(e.getIdNum() == searchId) {
+                System.out.println(e);
+
+                found = true;
+                break;
+
             }
-         }
+        }
+        if (!found) {
+            System.out.println("Employee with ID" + searchId + " not found.");
+        }
 
-         if (!found) {
-            System.out.println("Employee not found!");
-         }
+        System.out.println("Continue Searching? (Y/N)");
+        choice = scan.next();
 
-         System.out.print("Do you want to search again? (Y/N): ");
-         choice = scan.next();
-      }
-         System.out.println("Program ended.");
-   }
+        while (!(choice.equalsIgnoreCase("y") || choice.equalsIgnoreCase("n"))) {
+            System.out.println("Wrong choice. Please enter only 'y' or 'n'.");
+
+            System.out.print("Search again? (y/n): ");
+            choice = scan.next();
+        }
+
+    }
+
+    }
 }
